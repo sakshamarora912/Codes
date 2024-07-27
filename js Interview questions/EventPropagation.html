@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body *{margin:10px;padding: 10px;border:1px solid red}
+</style>
+<body>
+    <div>DIV <form>FORM <button>BUTTON</button></form></div>
+</body>
+<script>
+    const div=document.querySelector("div");
+    const form=document.querySelector("form");
+    const button=document.querySelector("button")
+
+    const func=(e)=>{
+        alert("event Target = "+ e.target.tagName + "\ncurrent Target = "+ e.currentTarget.tagName);
+        e.stopPropagation();
+    }
+    
+    div.addEventListener("click",func,true)
+    form.addEventListener("click",func,true)
+    button.addEventListener("click",func,true)
+</script>
+</html>

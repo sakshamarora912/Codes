@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .products{display: grid;grid-template-columns:100px 100px 100px; grid-gap:10px}
+    span{width:100px;height: 100px;background-color: bisque;display: flex;justify-content: center;align-items: center;}
+
+</style>
+<body>
+    <div class="products">
+        <span class="mobile">mobile</span>
+        <span class="headphone">headphone</span>
+        <span class="laptop">laptop</span>
+        <span class="speaker">speaker</span>
+        <span class="USB Dock">USB Dock</span>
+        <span class="Tripod">Tripod</span>
+    </div>
+</body>
+<script>
+    document.querySelector(".products").addEventListener("click",(event)=>{
+        window.location.href+="/"+event.target.className
+    })
+</script>
+</html>

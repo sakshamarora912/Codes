@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+     .modal{height:30em;width:20em;border:2px solid black;display: none;justify-items: ;}
+</style>
+<body class="container">
+    <button class="open">Click me</button>
+    <div class="modal">
+        <button class="close">Close</button>
+    </div>
+</body>
+<script>
+    let modal=document.querySelector('.modal');
+    document.querySelector('.open').addEventListener('click',()=>modal.style.display="block")
+    document.querySelector('.close').addEventListener('click',()=>modal.style.display="none")
+    document.querySelector('body').addEventListener("click",(event)=>{
+        if(event.target.className=="container")modal.style.display="none"
+    })
+</script>
+</html>

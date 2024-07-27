@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <h1>debounce</h1>
+    <button class="btn">increment</button>
+    <p class="pressed">Button pressed<span> 0 </span>Times</p>
+    <p class="debounce_trigger">debounce<span> 0 </span>Times</p>
+    <p class="throttle_trigger">throttle<span> 0 </span>Times</p>
+
+</body>
+
+<script>
+    const btn=document.querySelector('.btn')
+    const pressed=document.querySelector('.pressed')
+    const debounce_trigger=document.querySelector('.debounce_trigger')
+    const throttle_trigger=document.querySelector('.throttle_trigger')
+    let pressed_count=0;
+    let debounce_trigger_count=0;
+    let throttle_trigger_count=0;
+
+    const debounceCount=_.debounce(()=>{
+    debounce_trigger.innerHTML=++debounce_trigger_count;
+    },800)
+    
+
+    const throttleCount=_.throttle(()=>{
+    throttle_trigger.innerHTML=++throttle_trigger_count;
+    },800)
+
+    btn.addEventListener("click",()=>{
+        pressed.innerHTML=++pressed_count;
+        debounceCount();
+        throttleCount();
+    })
+
+</script>
+</html>
